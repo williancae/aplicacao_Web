@@ -189,7 +189,6 @@
         </blockquote>
     </section>
     <!-- End quote -->
-
     <!-- Questions -->
     <section class="container">
         <!-- Title -->
@@ -287,11 +286,10 @@
 
         <div class="text-center my-4">
             <p class="small m-1">FALE CONOSCO PARA MAIS DÚVIDAS</p>
-            <a class="btn btn-primary btn-lg" href="contato.html">Entre em contato</a>
+            <a class="btn btn-primary btn-lg" href="contato.php">Entre em contato</a>
         </div>
     </section>
     <!-- End questions -->
-
     <!-- Footer -->
     <?php include("footer.php")?>
     <!-- End footer -->

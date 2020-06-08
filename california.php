@@ -83,10 +83,10 @@
         </div>
         <!-- end Title -->
         <?php
-        include("conexao.php");
-        $california = selectCalifornia();
-        var_dump($california);
-        ?>
+        //include("conexao.php");
+       // $california = selectCalifornia();
+        // var_dump($california);
+        //?>
         <!-- Table -->
         <table class="table table-hover table-responsive-md text-center">
             <thead>
@@ -99,6 +99,8 @@
             </thead>
             <tbody>
                 <?php
+                include("conexao.php");
+                $california = selectCalifornia();
                 foreach ($california as $resultado) { ?>
                     <tr>
                         <th scope="row"><?=$resultado["data"]?></th>

@@ -91,8 +91,8 @@
         <!-- Table -->
         <?php
         include("conexao.php");
-        $paris = selectPais();
-        var_dump($paris);
+        $paris = selectParis();
+        // var_dump($paris);
         ?>
      
      

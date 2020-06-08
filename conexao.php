@@ -26,7 +26,7 @@ function eventoCalifornia(){
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";
     $banco->query($sql);
     $banco->close();
-    voltarPagina();
+    header("Location:adminCalifornia.php");
     
 }
 function eventoParis(){
@@ -37,7 +37,7 @@ function eventoParis(){
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";
     $banco->query($sql);
     $banco->close();
-    voltarPagina();
+    header("Location:adminParis.php");
 }
 function eventoDublin(){
     $banco = abrirBanco();
@@ -47,15 +47,12 @@ function eventoDublin(){
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";
     $banco->query($sql);
     $banco->close();
-    voltarPagina();  
-}
-function voltarPagina(){
-    header("Location:admin.php");
+    header("Location:adminDublin.php");  
 }
 
 function selectParis(){
     $banco = abrirBanco();
-    $sql = "SELECT  * FROM paris ORDER BY evento";
+    $sql = "SELECT  * FROM paris ORDER BY id desc";
     $resultado = $banco->query($sql);
     while($row = mysqli_fetch_array($resultado)){
         $paris [] = $row;
@@ -64,7 +61,7 @@ function selectParis(){
 }
 function selectCalifornia(){
     $banco = abrirBanco();
-    $sql = "SELECT  * FROM california ORDER BY evento";
+    $sql = "SELECT  * FROM california ORDER BY id desc";
     $resultado = $banco->query($sql);
     while($row = mysqli_fetch_array($resultado)){
         $california [] = $row;
@@ -73,7 +70,7 @@ function selectCalifornia(){
 }
 function selectDublin(){
     $banco = abrirBanco();
-    $sql = "SELECT  * FROM dublin ORDER BY evento";
+    $sql = "SELECT  * FROM dublin ORDER BY id desc";
     $resultado = $banco->query($sql);
     while($row = mysqli_fetch_array($resultado)){
         $dublin [] = $row;

@@ -87,7 +87,7 @@
     <?php
     include("conexao.php");
     $dublin = selectDublin();
-    var_dump($dublin);
+    // var_dump($dublin);
     ?>
         <!-- Table -->
         <table class="table table-hover table-responsive-md text-center">

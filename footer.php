@@ -4,17 +4,17 @@
                 <div class="col-md-3 col-6">
                     <h4 class="h6">PÁGINAS</h4>
                     <ul class="list-unstyled">
-                        <li><a href="planos.html">Planos</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                        <li><a href="inscricao.html">Inscreva-se</a></li>
+                        <li><a href="planos.php">Planos</a></li>
+                        <li><a href="contato.php">Contato</a></li>
+                        <li><a href="inscricao.php">Inscreva-se</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-6">
                     <h4 class="h6">LOCAIS</h4>
                     <ul class="list-unstyled">
-                        <li><a href="local.html">California</a></li>
-                        <li><a href="local.html">Paris</a></li>
-                        <li><a href="local.html">Dublin</a></li>
+                        <li><a href="california.php">California</a></li>
+                        <li><a href="paris.php">Paris</a></li>
+                        <li><a href="dublin.php">Dublin</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">

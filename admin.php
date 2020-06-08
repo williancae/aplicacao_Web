@@ -25,6 +25,16 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=" #">
+                    Locais
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="adminCalifornia.php">California</a>
+                    <a class="dropdown-item" href="adminParis.php">Paris</a>
+                    <a class="dropdown-item" href="adminDublin.php">Dublin</a>
+                </div>
+            </li>
             <li class="nav-item ml-md-2 active ">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="">Admin <img src="img/icones/user-solid.svg" style="margin-left: 6px; margin-bottom: 10px;" height="20px"></a>
             </li>
@@ -32,6 +42,68 @@
     </div>
 </nav>
 <!-- Button trigger modal -->
+
+    <!-- Carousel and Info -->
+    <section class="container-fluid">
+        <div class="row bg-dark text-white">
+            <div class="col-lg-7 p-0">
+                <!-- Carousel -->
+                <div id="carouselCidades" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselCidades" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselCidades" data-slide-to="1"></li>
+                        <li data-target="#carouselCidades" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/california.jpg" class="d-block w-100" alt="California">
+                            <div class="carousel-caption">
+                                <h3 class="display-4">California</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/paris.jpg" class="d-block w-100" alt="Paris">
+                            <div class="carousel-caption">
+                                <h3 class="display-4">Paris</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/dublin.jpg" class="d-block w-100" alt="Dublin">
+                            <div class="carousel-caption">
+                                <h3 class="display-4">Dublin</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselCidades" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselCidades" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </div>
+                <!-- End carousel -->
+            </div>
+            <div class="col-lg-5 p-4 align-self-center">
+                <h1 class="display-4">Realize a viagem do seu sonho</h1>
+                <p class="lead">O melhor local para viajar é com a Caravan, mais de 5.000 excursões concluídas.</p>
+                <form action="">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" placeholder="E-mail" aria-label="Email"
+                            aria-describedby="Email">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-addon2">
+                                Inscreva-se
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- End carousel and Info -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,395 +125,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-<!-- Table  ===========     Dublin -->
-<section class="container">
-    <!-- Title -->
-    <div class="text-center my-5">
-        <h2 class="display-4 text-primary">Próximos Eventos "Paris"</h2>
-    </div>
-    <!-- Title -->
-
-
-
-    <!-- Modal ADD     -->
-    <div class="d-flex bd-highlight">
-        <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionaParis">
-            Adicionar Novo
-        </button>
-    </div>
-    <!-- Modal -->
-
-
-
-
-    <table class="table table-hover table-responsive-md text-center">
-        <thead>
-            <tr>
-                <th scope="col">Data</th>
-                <th scope="col">Evento</th>
-                <th scope="col">Local</th>
-                <th scope="col">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-        </tbody>
-    </table>
-    <!-- End table -->
-</section>
-<!-- End table -->
-
-<!-- Table  ===========     Dublin -->
-<section class="container">
-    <!-- Title -->
-    <div class="text-center my-5">
-        <h2 class="display-4 text-primary">Próximos Eventos "California"</h2>
-    </div>
-    <!-- end Title -->
-
-    <!-- Modal ADD     -->
-    <div class="d-flex bd-highlight">
-        <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionarCalifornia">
-            Adicionar Novo
-        </button>
-    </div>
-    <!-- Modal -->
-
-
-
-
-    <table class="table table-hover table-responsive-md text-center">
-        <thead>
-            <tr>
-                <th scope="col">Data</th>
-                <th scope="col">Evento</th>
-                <th scope="col">Local</th>
-                <th scope="col">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-        </tbody>
-    </table>
-    <!-- End table -->
-
-</section>
-<!-- End table -->
-
-
-
-<!-- Table  ===========     Dublin -->
-<section class="container">
-    <!-- Title -->
-    <div class="text-center my-5">
-        <h2 class="display-4 text-primary">Próximos Eventos "Dublin"</h2>
-    </div>
-    <!-- end Title -->
-
-    <!-- Modal ADD     -->
-    <div class="d-flex bd-highlight">
-        <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionaDublin">
-            Adicionar Novo
-        </button>
-    </div>
-    <!-- Modal -->
-
-
-
-
-    <table class="table table-hover table-responsive-md text-center">
-        <thead>
-            <tr>
-                <th scope="col">Data</th>
-                <th scope="col">Evento</th>
-                <th scope="col">Local</th>
-                <th scope="col">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">23/10</th>
-                <td>Julien Baker</td>
-                <td>The Academy</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">25/10</th>
-                <td>Lucy Rose</td>
-                <td>Olympia</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">27/10</th>
-                <td>Bon Iver</td>
-                <td>Whelans</td>
-                <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
-
-            </tr>
-        </tbody>
-    </table>
-    <!-- End table -->
-
-</section>
-<!-- End table -->
-
-
-<!-- Modal Adicionar Eventos California -->
-<div class="modal fade" id="adicionarCalifornia" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adicionarLabel">Adicionar Eventos</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="conexao.php" method="POST">
-                <div class="modal-body">
-                    <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="california" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal ADD -->
-
-<!-- Modal Adicionar Eventos Dublin -->
-<div class="modal fade" id="adicionaDublin" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adicionarLabel">Adcionar Evento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="conexao.php" method="POST">
-                <div class="modal-body">
-                    <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="dublin" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal ADD -->
-
-<!-- Modal Adicionar Eventos Paris -->
-<div class="modal fade" id="adicionaParis" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adicionarLabel">Adcionar Evento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="conexao.php" method="POST">
-                <div class="modal-body">
-                    <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="paris" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal ADD -->
-
-
-
-
-
-
-<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarLabel">Aditar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <label for="Evento">Evento</label>
-                    <input type="text" class="form-control" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" placeholder="Data">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                <button type="button" class="btn btn-primary">Atualizar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
