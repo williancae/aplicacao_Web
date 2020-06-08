@@ -84,7 +84,11 @@
             <h2 class="display-4 text-primary">Próximos Eventos</h2>
         </div>
         <!-- end Title -->
-
+    <?php
+    include("conexao.php");
+    $dublin = selectDublin();
+    var_dump($dublin);
+    ?>
         <!-- Table -->
         <table class="table table-hover table-responsive-md text-center">
             <thead>
@@ -96,42 +100,17 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+                foreach($dublin as $resultado){ ?>
                 <tr>
-                    <th scope="row">23/10</th>
-                    <td>Julien Baker</td>
-                    <td>The Academy</td>
+                    <th scope="row"><?=$resultado["data"]?></th>
+                    <td><?=$resultado["evento"]?></td>
+                    <td><?=$resultado["local"]?></td>
                     <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
                 </tr>
-                <tr>
-                    <th scope="row">25/10</th>
-                    <td>Lucy Rose</td>
-                    <td>Olympia</td>
-                    <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">27/10</th>
-                    <td>Bon Iver</td>
-                    <td>Whelans</td>
-                    <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">23/10</th>
-                    <td>Julien Baker</td>
-                    <td>The Academy</td>
-                    <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">25/10</th>
-                    <td>Lucy Rose</td>
-                    <td>Olympia</td>
-                    <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">27/10</th>
-                    <td>Bon Iver</td>
-                    <td>Whelans</td>
-                    <td><a href="" class="btn btn-outline-secondary btn-sm">Comprar Ticket</a></td>
-                </tr>
+                <?php
+                    }
+                ?>
             </tbody>
         </table>
         <!-- End table -->
