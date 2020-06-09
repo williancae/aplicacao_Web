@@ -11,10 +11,11 @@
     <?php
     include("conexao.php");
     $california = selectCalifornia();
-    var_dump($california);
+    $editarCalifornia = selectIdCalifornia($_POST["id"]);
+
     ?>
 
-    <h1>california$california</h1>
+    <h1>california $$</h1>
     <button><a href="">Inserir</a></button>
     <form action="conexao.php" method="POST">
         <table border="1">
@@ -29,20 +30,31 @@
             </thead>
             <tbody>
                 <?php
-                foreach($california as $resultado){ ?>
+                $editarCalifornia = selectIdCalifornia($_POST["id"]);
+                foreach ($california as $resultado) { ?>
+                
                     <tr>
-                        <td><?=$resultado["data"]?></td>
-                        <td><?=$resultado["evento"]?></td>
-                        <td><?=$resultado["local"]?></td>
-                        <td>Editar</td>
-                        <td>Excluir</td>
+                        <td><?= $resultado["data"] ?></td>
+                        <td><?= $resultado["evento"] ?></td>
+                        <td><?= $resultado["local"] ?></td>
+                        <form action="alterar.php" name="altera" method="post">
+                            </td><input type="hidden" name="id" value=<?= $resultado["id"] ?>></td>
+                            <td><input type="submit" name="editar" value="Editar"></td>
+                            <td>Excluir</td>
+
+                        </form>
                     </tr>
                 <?php
-                    }
+                }
                 ?>
+
             </tbody>
         </table>
     </form>
+
+    </tbody>
+    </table>
+
 </body>
 
 </html>

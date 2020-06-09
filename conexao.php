@@ -1,8 +1,12 @@
 <?php
 
-
-if($_POST['california'] == "inserir"){
-    eventoCalifornia();
+if (isset($_POST["california"])) {
+    if($_POST['california'] == "alterar"){
+        alteraCalifornia();
+    }    
+    if ($_POST['california'] == "inserir") {
+        eventoCalifornia();
+    }
 }
 if($_POST['paris'] == "inserir"){
     eventoParis();
@@ -10,6 +14,7 @@ if($_POST['paris'] == "inserir"){
 if($_POST['dublin'] == "inserir"){
     eventoDublin();
 }
+// var_dump($editarCalifornia["id"]);
 // 
 function abrirBanco(){
     $conexao = new mysqli("localhost","root","root","caravan");
@@ -84,3 +89,24 @@ function selectDublin(){
     // }else{
     //     echo "Tudo certo";
     // }
+
+
+    function selectIdCalifornia($id){
+        $banco = abrirBanco();
+        $sql = "SELECT  * FROM california WHERE id =".$id;
+        $resultado = $banco->query($sql);
+        $editarCalifornia = mysqli_fetch_assoc($resultado);
+        return $editarCalifornia;
+    }
+
+    function alteraCalifornia(){
+        $banco = abrirBanco();
+    
+        // echo "Conexão realizada com sucesso";
+        // VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}'
+        $sql = "UPDATE california SET data='{$_POST["data"]}',evento='{$_POST["evento"]}',local='{$_POST["local"]}' WHERE id='{$_POST["id"]}' ";
+        $banco->query($sql);
+        $banco->close();
+        header("Location:teste.php");
+        
+    }
