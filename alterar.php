@@ -9,16 +9,12 @@
 
 <body>
     <?php
-    // include("conexao.php");
-
-    // var_dump($california); 
-
     include("conexao.php");
 
     // var_dump($editarCalifornia);
-    $california = selectCalifornia();
     // include("conexao.php");
     $editarCalifornia = selectIdCalifornia($_POST["id"]);
+    // var_dump($editarCalifornia);
     ?>
     <h1>california $$</h1>
     <button><a href="">Inserir</a></button>
