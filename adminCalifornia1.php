@@ -71,6 +71,7 @@
 <!--  -->
 <!--  -->
 <?php
+include('process.php');
 require_once 'process.php'; ?>
 <?php
 if (isset($_SESSION['message'])) : ?>
@@ -113,7 +114,8 @@ $result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
                     <td><?php echo $row['evento']; ?></td>
                     <td><?php echo $row['local']; ?></td>
                     <td>
-                        <a href="adminCalifornia1.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#adicionarCalifornia">Editar</a>
+                        <!-- href="adminCalifornia1.php?edit=<?//php echo $row['id']; ?>" -->
+                        <a data-toggle="modal" data-target="#editar" class="btn btn-warning btn-sm">Editar</a>
                         <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a>
                     </td>
                 </tr>
@@ -167,12 +169,12 @@ function pre_r($array)
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
 
                     <?php
-                    if ($update == false){
+                    if ($update == TRUE) :
                     ?>
                         <button type="submit" class="btn btn-danger" name="update">alterar</button>
-                    <?php }else{ ?>
+                    <?php else : ?>
                         <button type="submit" class="btn btn-primary" name="adicionar">Adicionar</button>
-                    <?php } ?>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
@@ -191,8 +193,8 @@ function pre_r($array)
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form action="">
+            <form action="process.php?edit=<?php echo $row['id']?>" method="POST">
+                <div class="modal-body">
                     <label for="Evento">Evento</label>
                     <input type="text" class="form-control" placeholder="Nome Do Evento">
                     <div class="row my-2">
@@ -205,12 +207,12 @@ function pre_r($array)
                             <input type="text" class="form-control" placeholder="Data">
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                <button type="button" class="btn btn-primary">Atualizar</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                    <button type="button" class="btn btn-primary">Atualizar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

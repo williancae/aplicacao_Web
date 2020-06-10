@@ -32,18 +32,19 @@ if(isset($_GET['delete'])){
     $_SESSION['msg_type'] = "danger";
     header("location: adminCalifornia1.php");
 }
+// if(isset($_GET['edit'])){
+//     $id = $_GET['edit'];
+//     $update = true;
+//     $result = $mysqli->query("SELECT * FROM california WHERE id=$id") or die($mysqli->error);
+//     if($result->num_rows){
+//         $row = $result->fetch_array();
+//         $data = $row['data'];
+//         $evento = $row['evento'];
+//         $local = $row['local'];
+//     }
+// }
 
-if(isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $update = true;
-    $result = $mysqli->query("SELECT * FROM california WHERE id=$id") or die($mysqli->error);
-    if($result->num_rows){
-        $row = $result->fetch_array();
-        $data = $row['data'];
-        $evento = $row['evento'];
-        $local = $row['local'];
-    }
-}
+
 if(isset($_POST['update'])){
     $id = $_POST['id'];
     $data = $_POST['data'];
@@ -56,6 +57,10 @@ if(isset($_POST['update'])){
 
     header("location:adminCalifornia1.php");
 }
+
+
+
+
 
 // if(isset($_POST['update'])){
 //     $id = $_POST['id'];
