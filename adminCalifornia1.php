@@ -1,8 +1,9 @@
 <?php
-include("conexao.php");
-$california = selectCalifornia();
-$editarCalifornia = selectIdCalifornia($id);
+// include("conexao.php");
+// $california = selectCalifornia();
+// $editarCalifornia = selectIdCalifornia($id);
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,9 +71,20 @@ $editarCalifornia = selectIdCalifornia($id);
 <!--  -->
 <!--  -->
 <?php
-$mysqli = new mysqli('localhost','root','root','caravan') or die(mysqli_error($mysqli));
+require_once 'process.php'; ?>
+<?php
+if (isset($_SESSION['message'])) : ?>
+    <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
+        <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        ?>
+    </div>
+<?php endif ?>
+<?php
+$mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli));
 $result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
-// pre_r($result);
+
 ?>
 
 <!-- ################################## TABELA DE CONTEUDO ##################################-->
@@ -94,28 +106,27 @@ $result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
                 <th scope="col">Update</th>
             </tr>
         </thead>
-            <tbody>
-            <?php while ($row = $result->fetch_assoc()):?>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                    <th scope="row"><?php echo $row['data'];?></th>
-                    <td><?php echo $row['evento'];?></td>
-                    <td><?php echo $row['local'];?></td>
+                    <th scope="row"><?php echo $row['data']; ?></th>
+                    <td><?php echo $row['evento']; ?></td>
+                    <td><?php echo $row['local']; ?></td>
                     <td>
-                        <a href="adminCalifornia1.php?edit=<?php echo $row['id'];?>"
-                            class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a>
-                        <a href="process.php?delete=<?php echo $row['id'];?>"
-                            class="btn btn-danger btn-sm">delete</a>
+                        <a href="adminCalifornia1.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#adicionarCalifornia">Editar</a>
+                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a>
                     </td>
                 </tr>
-            <?php endwhile;?>
-            </tbody>
+            <?php endwhile; ?>
+        </tbody>
     </table>
 </section>
 <!-- ################################## TABELA DE CONTEUDO ##################################-->
 
 <?php
 // pre_r($result->fetch_assoc());
-function pre_r($array){
+function pre_r($array)
+{
     echo '<pre>';
     print_r($array);
     echo '</pre>';
@@ -136,25 +147,32 @@ function pre_r($array){
                 </button>
             </div>
             <form action="process.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $id ?>">
                 <div class="modal-body">
                     <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
+                    <input type="text" class="form-control" name="evento" value="<?php echo $evento ?>" placeholder="Nome Do Evento">
                     <div class="row my-2">
                         <div class="col-md-8">
                             <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
+                            <input type="text" class="form-control" name="local" value="<?php echo $local ?>" placeholder="Endereço do Evento">
                         </div>
                         <div class="col-md-4">
                             <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
+                            <input type="text" class="form-control" name="data" id="" value="<?php echo $data ?>" placeholder="Data">
                         </div>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <!-- <input type="hidden" name="california" value="inserir" /> -->
-                    <button type="submit" class="btn btn-primary" name="adicionar" >Adicionar</button>
+
+                    <?php
+                    if ($update == false){
+                    ?>
+                        <button type="submit" class="btn btn-danger" name="update">alterar</button>
+                    <?php }else{ ?>
+                        <button type="submit" class="btn btn-primary" name="adicionar">Adicionar</button>
+                    <?php } ?>
                 </div>
             </form>
         </div>
