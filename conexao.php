@@ -1,7 +1,7 @@
 <?php
 // var_dump($editarCalifornia["id"]);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>> Estabelecendo conexao banco
- 
+
 function abrirBanco()
 {
     $conexao = new mysqli("localhost", "root", "root", "caravan");
@@ -120,6 +120,6 @@ function alteraCalifornia() // -->>-->> Alterações Realizadas no MODAL De ATUA
     $sql = "UPDATE california SET data='{$_POST["data"]}',evento='{$_POST["evento"]}',local='{$_POST["local"]}' WHERE id='{$_POST["id"]}' ";
     $banco->query($sql);
     $banco->close();
-    header("Location:teste.php");
+    header("Location:adminCalifornia.php");
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Conectar Banco California

@@ -27,27 +27,28 @@
                 </tr>
             </thead>
             <tbody>
+    </form>
                 <?php
-                foreach ($california as $resultado) { ?>
-                
+                //foreach ($california as $resultado) { ?>
+
                     <tr>
                         <td><?= $resultado["data"] ?></td>
                         <td><?= $resultado["evento"] ?></td>
                         <td><?= $resultado["local"] ?></td>
                         <form action="alterar.php" name="altera" method="POST">
-                            </td><input type="hidden" name="id" value=<?= $resultado["id"]?>></td>
+                            </td><input type="hidden" value=<?= $resultado["id"] ?> name="id" ></td>
                             <td><input type="submit" name="editar" value="Editar"></td>
                             <td>Excluir</td>
 
                         </form>
                     </tr>
                 <?php
-                }
+                //}
                 ?>
 
             </tbody>
         </table>
-    </form>
+    
 
     </tbody>
     </table>

@@ -1,7 +1,8 @@
 <?php
-
+include("conexao.php");
+$california = selectCalifornia();
+$editarCalifornia = selectIdCalifornia($id);
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <i class="fas fa-clock"></i>
 </head>
 
+<!-- ##################################     NAVBAR   ######################################## -->
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light py-3 box-shadow">
     <a class="navbar-brand" href="index.php">
         <img src="img/caravan.svg" alt="Caravan">
@@ -42,9 +44,8 @@
         </ul>
     </div>
 </nav>
-<!-- Button trigger modal -->
-
-<!-- Modal -->
+<!--  -->
+<!--  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -64,65 +65,67 @@
         </div>
     </div>
 </div>
+<!-- ##################################     NAVBAR   ######################################## -->
 
-<!-- Table  ===========     Dublin -->
+<!--  -->
+<!--  -->
+<?php
+$mysqli = new mysqli('localhost','root','root','caravan') or die(mysqli_error($mysqli));
+$result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
+// pre_r($result);
+?>
+
+<!-- ################################## TABELA DE CONTEUDO ##################################-->
 <section class="container">
-    <!-- Title -->
     <div class="text-center my-5">
         <h2 class="display-4 text-primary">Próximos Eventos "California"</h2>
     </div>
-    <!-- end Title -->
-
-    <!-- Modal ADD     -->
     <div class="d-flex bd-highlight">
         <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionarCalifornia">
             Adicionar Novo
         </button>
     </div>
-    <!-- Modal -->
-    <?php
-    include("conexao.php");
-    $california = selectCalifornia();
-    $editarCalifornia = selectIdCalifornia($id);
-    ?>
-
-
-
     <table class="table table-hover table-responsive-md text-center">
         <thead>
             <tr>
                 <th scope="col">Data</th>
                 <th scope="col">Evento</th>
                 <th scope="col">Local</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Update</th>
             </tr>
         </thead>
-        <?php
-        foreach ($california as $resultado) {
-        ?>
             <tbody>
-
+            <?php while ($row = $result->fetch_assoc()):?>
                 <tr>
-                    <th scope="row"><?= $resultado["data"] ?></th>
-                    <td><?= $resultado["evento"] ?></td>
-                    <td><?= $resultado["local"] ?></td>
-                    <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
+                    <th scope="row"><?php echo $row['data'];?></th>
+                    <td><?php echo $row['evento'];?></td>
+                    <td><?php echo $row['local'];?></td>
+                    <td>
+                        <a href="adminCalifornia1.php?edit=<?php echo $row['id'];?>"
+                            class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a>
+                        <a href="process.php?delete=<?php echo $row['id'];?>"
+                            class="btn btn-danger btn-sm">delete</a>
+                    </td>
                 </tr>
-            <?php
-        }
-            ?>
+            <?php endwhile;?>
             </tbody>
     </table>
-    <!-- End table -->
-
 </section>
-<!-- End table -->
+<!-- ################################## TABELA DE CONTEUDO ##################################-->
 
+<?php
+// pre_r($result->fetch_assoc());
+function pre_r($array){
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+}
+?>
 
+<!--  -->
+<!--  -->
 
-
-
-<!-- Modal Adicionar Eventos California -->
+<!-- ################################# MODAL DE ADICIONAR ################################### -->
 <div class="modal fade" id="adicionarCalifornia" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -132,7 +135,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="conexao.php" method="POST">
+            <form action="process.php" method="POST">
                 <div class="modal-body">
                     <label for="Evento">Eventos</label>
                     <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
@@ -150,17 +153,17 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="california" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
+                    <!-- <input type="hidden" name="california" value="inserir" /> -->
+                    <button type="submit" class="btn btn-primary" name="adicionar" >Adicionar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<!-- Modal ADD -->
+<!-- ################################# MODAL DE ADICIONAR ################################### -->
 
 
-<!-- Editar O conteudo -->
+<!-- ################################### MODAL DE EDITAR #################################### -->
 <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -193,9 +196,16 @@
         </div>
     </div>
 </div>
+<!-- ################################### MODAL DE EDITAR #################################### -->
+
+<!--  -->
+<!--  -->
+<!--  -->
 
 
+<!-- Scripts -->
 
+<!--############################################################################################## -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
