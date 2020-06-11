@@ -14,7 +14,11 @@
     <title>Caravan</title>
     <i class="fas fa-clock"></i>
 </head>
-
+<?php
+include("conexao.php");
+$editarCalifornia = selectIdCalifornia($_POST["id"]);
+var_dump($editarCalifornia)
+?>
 <!-- ##################################     NAVBAR   ######################################## -->
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light py-3 box-shadow">
     <a class="navbar-brand" href="index.php">
@@ -69,104 +73,34 @@
 <!-- ##################################     NAVBAR   ######################################## -->
 
 <!--  -->
-<!--  -->
-<?php
-include('process.php');
-require_once 'process.php'; ?>
-<?php
-if (isset($_SESSION['message'])) : ?>
-    <div class="alert alert-<?= $_SESSION['msg_type'] ?> fade show" role="alert">
-        <?php
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        ?>
-    </div>
-<?php endif ?>
-<?php
-$mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli));
-$result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
 
-?>
-
-
-
-
-
-
-<!-- ################################## TABELA DE CONTEUDO ##################################-->
 <section class="container">
     <div class="text-center my-5">
         <h2 class="display-4 text-primary">Próximos Eventos "California"</h2>
     </div>
-    
-    <div class="d-flex flex-column">
-        <form action="process.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $id?>">
-            <div class="row">
-                <div class="col-4">
-                    <label for="evento">Evento</label>
-                    <input type="text" class="form-control" required name="evento" value="<?php echo $evento; ?>" placeholder="Nome Do Evento">
-                </div>
-                <div class="col-4">
-                <label for="local">Local</label>
-                    <input type="text" class="form-control" required name="local" value="<?php echo $local; ?>" placeholder="Endereço do Evento">
-                </div>
-                <div class="col-3">
-                <label for="data">Data</label>
-                    <input type="text" class="form-control" required name="data" id="" value="<?php echo $data; ?>" placeholder="Data">
-                </div>
-                <div class="col-1 px-0">
-                <label for="data">&nbsp;</label>
-                    <?php
-                    if ($update == true):?>
-                        <input type="submit" class="btn btn-danger form-control" name="update" value="Alterar">
-                    <?php
-                    else: ?>
-                        <input type="submit" class="btn btn-success form-control" name="adicionar" value="Adicionar">
-                    <?php 
-                    endif;?>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-
-
     <table class="table table-hover table-responsive-md text-center">
         <thead>
             <tr>
                 <th scope="col">Data</th>
                 <th scope="col">Evento</th>
                 <th scope="col">Local</th>
-                <th scope="col">Update</th>
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
-            <?php while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                    <th scope="row"><?php echo $row['data']; ?></th>
-                    <td><?php echo $row['evento']; ?></td>
-                    <td><?php echo $row['local']; ?></td>
+                    <th scope="row"><input type="text" class="form-control" value="<?= $editarCalifornia['data']; ?>"></th>
+                    <td><input type="text" class="form-control" value="<?php echo $editarCalifornia['evento']; ?>"></td>
+                    <td><input type="text" class="form-control" value="<?= $editarCalifornia['local']; ?>"></td>
                     <td>
-                        <a href="adminCalifornia1.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a>
+                        <input type="hidden" name="california" value="alterar">
+                        <input type="submit"  class="btn btn-warning btn-sm" name="editar" value="Alterar">
                     </td>
-
                 </tr>
-            <?php endwhile; ?>
         </tbody>
     </table>
 </section>
 
-
-<!-- ################################## TABELA DE CONTEUDO ##################################-->
-
-
-
-<!-- Scripts -->
-
-<!--############################################################################################## -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>

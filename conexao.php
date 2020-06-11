@@ -120,6 +120,6 @@ function alteraCalifornia() // -->>-->> Alterações Realizadas no MODAL De ATUA
     $sql = "UPDATE california SET data='{$_POST["data"]}',evento='{$_POST["evento"]}',local='{$_POST["local"]}' WHERE id='{$_POST["id"]}' ";
     $banco->query($sql);
     $banco->close();
-    header("Location:adminCalifornia.php");
+    header("Location:adminCalifornia1.php");
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Conectar Banco California

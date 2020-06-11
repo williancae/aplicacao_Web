@@ -1,5 +1,7 @@
 <?php
-
+// include("conexao.php");
+// $california = selectCalifornia();
+// $editarCalifornia = selectIdCalifornia($id);
 ?>
 
 <head>
@@ -13,6 +15,7 @@
     <i class="fas fa-clock"></i>
 </head>
 
+<!-- ##################################     NAVBAR   ######################################## -->
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light py-3 box-shadow">
     <a class="navbar-brand" href="index.php">
         <img src="img/caravan.svg" alt="Caravan">
@@ -42,9 +45,8 @@
         </ul>
     </div>
 </nav>
-<!-- Button trigger modal -->
-
-<!-- Modal -->
+<!--  -->
+<!--  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -64,27 +66,71 @@
         </div>
     </div>
 </div>
+<!-- ##################################     NAVBAR   ######################################## -->
 
-<!-- Table  ===========     Dublin -->
+<!--  -->
+<!--  -->
+<?php
+include('process.php');
+require_once 'process.php'; ?>
+<?php
+if (isset($_SESSION['message'])) : ?>
+    <div class="alert mx-3 mt-3 alert-dismissible alert-<?= $_SESSION['msg_type'] ?> fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        ?>
+    </div>
+<?php endif ?>
+<?php
+$mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli));
+$result = $mysqli->query("SELECT * FROM california") or die($mysqli->error);
+
+?>
+
+
+
+
+
+
+<!-- ################################## TABELA DE CONTEUDO ##################################-->
 <section class="container">
-    <!-- Title -->
     <div class="text-center my-5">
         <h2 class="display-4 text-primary">Próximos Eventos "California"</h2>
     </div>
-    <!-- end Title -->
-
-    <!-- Modal ADD     -->
-    <div class="d-flex bd-highlight">
-        <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionarCalifornia">
-            Adicionar Novo
-        </button>
+    
+    <div class="d-flex flex-column">
+        <form action="process.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id?>">
+            <div class="row">
+                <div class="col-4">
+                    <label for="evento">Evento</label>
+                    <input type="text" class="form-control" name="evento" required value="<?php echo $evento; ?>" placeholder="Nome Do Evento">
+                </div>
+                <div class="col-4">
+                <label for="local">Local</label>
+                    <input type="text" class="form-control" name="local" required value="<?php echo $local; ?>" placeholder="Endereço do Evento">
+                </div>
+                <div class="col-3">
+                <label for="data">Data</label>
+                    <input type="text" class="form-control" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
+                </div>
+                <div class="col-1 px-0">
+                <label for="data">&nbsp;</label>
+                    <?php
+                    if ($update == true):?>
+                        <input type="submit"  class="btn btn-danger form-control" name="update" value="Alterar">
+                    <?php
+                    else: ?>
+                        <input type="submit"  class="btn btn-success form-control" name="adicionar" value="Adicionar">
+                    <?php 
+                    endif;?>
+                </div>
+            </div>
+        </form>
     </div>
-    <!-- Modal -->
-    <?php
-    include("conexao.php");
-    $california = selectCalifornia();
-    $editarCalifornia = selectIdCalifornia($id);
-    ?>
+
 
 
 
@@ -94,105 +140,41 @@
                 <th scope="col">Data</th>
                 <th scope="col">Evento</th>
                 <th scope="col">Local</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Update</th>
             </tr>
         </thead>
-        <?php
-        foreach ($california as $resultado) {
-        ?>
-            <tbody>
-
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                    <th scope="row"><?= $resultado["data"] ?></th>
-                    <td><?= $resultado["evento"] ?></td>
-                    <td><?= $resultado["local"] ?></td>
-                    <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
+                    <th scope="row"><?php echo $row['data']; ?></th>
+                    <td><?php echo $row['evento']; ?></td>
+                    <td><?php echo $row['local']; ?></td>
+                    <td>
+                        <a href="adminCalifornia.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a>
+                    </td>
+
                 </tr>
-            <?php
-        }
-            ?>
-            </tbody>
+            <?php endwhile; ?>
+        </tbody>
     </table>
-    <!-- End table -->
-
 </section>
-<!-- End table -->
+
+
+<!-- ################################## TABELA DE CONTEUDO ##################################-->
 
 
 
+<!-- Scripts -->
 
-
-<!-- Modal Adicionar Eventos California -->
-<div class="modal fade" id="adicionarCalifornia" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adicionarLabel">Adicionar Eventos</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="conexao.php" method="POST">
-                <div class="modal-body">
-                    <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="california" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal ADD -->
-
-
-<!-- Editar O conteudo -->
-<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarLabel">Aditar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <label for="Evento">Evento</label>
-                    <input type="text" class="form-control" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" <?= $resultado["local"] ?>>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" placeholder="Data">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                <button type="button" class="btn btn-primary">Atualizar</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!--############################################################################################## -->
+<script>
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 2000);
+</script>
 
 
 
