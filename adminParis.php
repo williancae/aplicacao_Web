@@ -28,9 +28,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item " href="admin.php"><strong>Pagina Admin</strong></a>
-                    <a class="dropdown-item active" href="adminCalifornia.php">California</a>
+                    <a class="dropdown-item " href="adminCalifornia.php">California</a>
                     <a class="dropdown-item" href="adminParis.php">Paris</a>
-                    <a class="dropdown-item" href="adminDublin.php">Dublin</a>
+                    <a class="dropdown-item active" href="adminDublin.php">Dublin</a>
                 </div>
             </li>
             <li class="nav-item ml-md-2 active ">
@@ -81,7 +81,7 @@ if (isset($_SESSION['message'])) : ?>
 <!-- ################################# Conexão com Banco ### INICIO ######################### -->
 <?php
 $mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli)); // Chamando Banco Caravan
-$result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Puxando dados da tabela CALIFORNIA
+$result = $mysqli->query("SELECT * FROM paris") or die($mysqli->error);  // Puxando dados da tabela CALIFORNIA
 ?>
 <!-- ################################# Conexão com Banco ### FIM ######################### -->
 
@@ -89,7 +89,7 @@ $result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Pux
 <!-- ################################## TABELA DE CONTEUDO ##### INICIO #########################-->
 <section class="container">
     <div class="text-center my-5">
-        <h2 class="display-4 text-primary">Próximos Eventos "Dublin"</h2>
+        <h2 class="display-4 text-primary">Próximos Eventos "Paris"</h2>
     </div>
 
     <!-- ############################## Formularios de Adicionar e Editar ### INICIO ########################  -->
@@ -142,7 +142,7 @@ $result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Pux
                     <td><?php echo $row['evento']; ?></td>
                     <td><?php echo $row['local']; ?></td>
                     <td>
-                        <a href="adminCalifornia.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
+                        <a href="adminParis.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
                         <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
                     </td>
                 </tr>

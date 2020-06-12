@@ -28,9 +28,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item " href="admin.php"><strong>Pagina Admin</strong></a>
-                    <a class="dropdown-item active" href="adminCalifornia.php">California</a>
+                    <a class="dropdown-item" href="adminCalifornia.php">California</a>
                     <a class="dropdown-item" href="adminParis.php">Paris</a>
-                    <a class="dropdown-item" href="adminDublin.php">Dublin</a>
+                    <a class="dropdown-item active" href="adminDublin.php">Dublin</a>
                 </div>
             </li>
             <li class="nav-item ml-md-2 active ">
@@ -142,7 +142,7 @@ $result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Pux
                     <td><?php echo $row['evento']; ?></td>
                     <td><?php echo $row['local']; ?></td>
                     <td>
-                        <a href="adminCalifornia.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
+                        <a href="adminDublin.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
                         <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
                     </td>
                 </tr>

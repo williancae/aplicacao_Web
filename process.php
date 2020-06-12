@@ -122,27 +122,27 @@ if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
     $evento = $_POST['evento'];
     $local = $_POST['local'];
 
-    $mysqli->query("INSERT INTO dublin (data, evento, local) VALUES('$data', '$evento', '$local')") or 
+    $mysqli->query("INSERT INTO paris (data, evento, local) VALUES('$data', '$evento', '$local')") or 
         die($mysqli->error);
     
     $_SESSION['message'] = "Cadastro Realizado com Sucesso";
     $_SESSION['msg_type'] = "success";
-    header("location: adminDublin.php");
+    header("location: adminParis.php");
 }
 
 if(isset($_GET['delete'])){ //Deletar Do Banco
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM dublin WHERE id=$id") or die($mysqli->error);
+    $mysqli->query("DELETE FROM paris WHERE id=$id") or die($mysqli->error);
     
     $_SESSION['message'] = "Evento Deletado";
     $_SESSION['msg_type'] = "danger";
-    header("location: adminDublin.php");
+    header("location: adminParis.php");
 }
 
 if(isset($_GET['edit'])){ // pegando o ID
     $id = $_GET['edit'];
     $update = true;
-    $result = $mysqli->query("SELECT * FROM dublin WHERE id=$id ") or die($mysqli->error);
+    $result = $mysqli->query("SELECT * FROM paris WHERE id=$id ") or die($mysqli->error);
     if($result->num_rows){
         $row = $result->fetch_array();
         $data = $row['data'];
@@ -157,11 +157,11 @@ if (isset($_POST['update'])){ //alterando Formulario
     $evento = $_POST['evento'];
     $local = $_POST['local'];
     
-    $mysqli->query("UPDATE  dublin SET data='$data', evento='$evento', local='$local' WHERE id=$id") or die($mysqli->error);
+    $mysqli->query("UPDATE  paris SET data='$data', evento='$evento', local='$local' WHERE id=$id") or die($mysqli->error);
     var_dump($local);
     $_SESSION['message'] = "Alteração feita";
     $_SESSION['msg_type'] = "success";
-    header("location: adminDublin.php");
+    header("location: adminParis.php");
 }
 // ============================== California
 
