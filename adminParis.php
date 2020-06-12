@@ -81,7 +81,7 @@ if (isset($_SESSION['message'])) : ?>
 <!-- ################################# Conexão com Banco ### INICIO ######################### -->
 <?php
 $mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli)); // Chamando Banco Caravan
-$result = $mysqli->query("SELECT * FROM paris") or die($mysqli->error);  // Puxando dados da tabela CALIFORNIA
+$result = $mysqli->query("SELECT * FROM paris") or die($mysqli->error);  // Puxando dados da tabela Paris
 ?>
 <!-- ################################# Conexão com Banco ### FIM ######################### -->
 
