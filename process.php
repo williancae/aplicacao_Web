@@ -20,19 +20,19 @@ if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
     
     $_SESSION['message'] = "Cadastro Realizado com Sucesso";
     $_SESSION['msg_type'] = "success";
-    header("location: adminCalifornia.php");
+    header("location: adminDublin.php");
 }
 
-if(isset($_GET['delete'])){
+if(isset($_GET['delete'])){ //Deletar Do Banco
     $id = $_GET['delete'];
     $mysqli->query("DELETE FROM california WHERE id=$id") or die($mysqli->error);
     
     $_SESSION['message'] = "Evento Deletado";
     $_SESSION['msg_type'] = "danger";
-    header("location: adminCalifornia.php");
+    header("location: adminDublin.php");
 }
 
-if(isset($_GET['edit'])){
+if(isset($_GET['edit'])){ // pegando o ID
     $id = $_GET['edit'];
     $update = true;
     $result = $mysqli->query("SELECT * FROM california WHERE id=$id ") or die($mysqli->error);
@@ -44,7 +44,7 @@ if(isset($_GET['edit'])){
     }
 }
 
-if (isset($_POST['update'])){
+if (isset($_POST['update'])){ //alterando Formulario
     $id = $_POST['id'];
     $data = $_POST['data'];
     $evento = $_POST['evento'];
@@ -54,10 +54,115 @@ if (isset($_POST['update'])){
     var_dump($local);
     $_SESSION['message'] = "Alteração feita";
     $_SESSION['msg_type'] = "success";
-    header("location: adminCalifornia.php");
+    header("location: adminDublin.php");
 }
 // ============================== California
 
 
+// ##################################   Dublin     #############################'
+
+// ============================== Dublin
+if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
+    $data = $_POST['data'];
+    $evento = $_POST['evento'];
+    $local = $_POST['local'];
+
+    $mysqli->query("INSERT INTO dublin (data, evento, local) VALUES('$data', '$evento', '$local')") or 
+        die($mysqli->error);
+    
+    $_SESSION['message'] = "Cadastro Realizado com Sucesso";
+    $_SESSION['msg_type'] = "success";
+    header("location: adminDublin.php");
+}
+
+if(isset($_GET['delete'])){ //Deletar Do Banco
+    $id = $_GET['delete'];
+    $mysqli->query("DELETE FROM dublin WHERE id=$id") or die($mysqli->error);
+    
+    $_SESSION['message'] = "Evento Deletado";
+    $_SESSION['msg_type'] = "danger";
+    header("location: adminDublin.php");
+}
+
+if(isset($_GET['edit'])){ // pegando o ID
+    $id = $_GET['edit'];
+    $update = true;
+    $result = $mysqli->query("SELECT * FROM dublin WHERE id=$id ") or die($mysqli->error);
+    if($result->num_rows){
+        $row = $result->fetch_array();
+        $data = $row['data'];
+        $evento = $row['evento'];
+        $local = $row['local'];
+    }
+}
+
+if (isset($_POST['update'])){ //alterando Formulario
+    $id = $_POST['id'];
+    $data = $_POST['data'];
+    $evento = $_POST['evento'];
+    $local = $_POST['local'];
+    
+    $mysqli->query("UPDATE  dublin SET data='$data', evento='$evento', local='$local' WHERE id=$id") or die($mysqli->error);
+    var_dump($local);
+    $_SESSION['message'] = "Alteração feita";
+    $_SESSION['msg_type'] = "success";
+    header("location: adminDublin.php");
+}
+// ============================== California
+
+
+
+// ##################################   Paris     #############################'
+
+
+
+// ============================== Paris
+if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
+    $data = $_POST['data'];
+    $evento = $_POST['evento'];
+    $local = $_POST['local'];
+
+    $mysqli->query("INSERT INTO dublin (data, evento, local) VALUES('$data', '$evento', '$local')") or 
+        die($mysqli->error);
+    
+    $_SESSION['message'] = "Cadastro Realizado com Sucesso";
+    $_SESSION['msg_type'] = "success";
+    header("location: adminDublin.php");
+}
+
+if(isset($_GET['delete'])){ //Deletar Do Banco
+    $id = $_GET['delete'];
+    $mysqli->query("DELETE FROM dublin WHERE id=$id") or die($mysqli->error);
+    
+    $_SESSION['message'] = "Evento Deletado";
+    $_SESSION['msg_type'] = "danger";
+    header("location: adminDublin.php");
+}
+
+if(isset($_GET['edit'])){ // pegando o ID
+    $id = $_GET['edit'];
+    $update = true;
+    $result = $mysqli->query("SELECT * FROM dublin WHERE id=$id ") or die($mysqli->error);
+    if($result->num_rows){
+        $row = $result->fetch_array();
+        $data = $row['data'];
+        $evento = $row['evento'];
+        $local = $row['local'];
+    }
+}
+
+if (isset($_POST['update'])){ //alterando Formulario
+    $id = $_POST['id'];
+    $data = $_POST['data'];
+    $evento = $_POST['evento'];
+    $local = $_POST['local'];
+    
+    $mysqli->query("UPDATE  dublin SET data='$data', evento='$evento', local='$local' WHERE id=$id") or die($mysqli->error);
+    var_dump($local);
+    $_SESSION['message'] = "Alteração feita";
+    $_SESSION['msg_type'] = "success";
+    header("location: adminDublin.php");
+}
+// ============================== California
 
 

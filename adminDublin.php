@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +9,7 @@
     <i class="fas fa-clock"></i>
 </head>
 
+<!-- ##################################     NAVBAR   ### INICIO ############################### -->
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light py-3 box-shadow">
     <a class="navbar-brand" href="index.php">
         <img src="img/caravan.svg" alt="Caravan">
@@ -31,9 +28,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item " href="admin.php"><strong>Pagina Admin</strong></a>
-                    <a class="dropdown-item " href="adminCalifornia.php">California</a>
+                    <a class="dropdown-item active" href="adminCalifornia.php">California</a>
                     <a class="dropdown-item" href="adminParis.php">Paris</a>
-                    <a class="dropdown-item active" href="adminDublin.php">Dublin</a>
+                    <a class="dropdown-item" href="adminDublin.php">Dublin</a>
                 </div>
             </li>
             <li class="nav-item ml-md-2 active ">
@@ -42,9 +39,8 @@
         </ul>
     </div>
 </nav>
-<!-- Button trigger modal -->
-
-<!-- Modal -->
+<!--  -->
+<!--  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -55,7 +51,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Deseja Sair do Painel Administrativo?</p>
+                Deseja Sair do Painel Administrativo?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ficar</button>
@@ -64,29 +60,70 @@
         </div>
     </div>
 </div>
+<!-- ##################################     NAVBAR   ### FIM ################################## -->
+
+<!-- ##################################  ALERTs ### INICIO ################################# -->
+<?php
+include('process.php');
+require_once 'process.php'; ?>
+<?php
+if (isset($_SESSION['message'])) : ?>
+    <div class="alert mx-3 mt-3 alert-dismissible alert-<?= $_SESSION['msg_type'] ?> fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php
+        echo $_SESSION['message'];  // Mensagem de sucesso
+        unset($_SESSION['message']); // Mensagem de ERRO
+        ?>
+    </div>
+<?php endif ?>
+<!-- #####################################  ALERTs ### FIM #################################### -->
+
+<!-- ################################# Conexão com Banco ### INICIO ######################### -->
+<?php
+$mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli)); // Chamando Banco Caravan
+$result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Puxando dados da tabela CALIFORNIA
+?>
+<!-- ################################# Conexão com Banco ### FIM ######################### -->
 
 
-<!-- Table  ===========     Dublin -->
+<!-- ################################## TABELA DE CONTEUDO ##### INICIO #########################-->
 <section class="container">
-    <!-- Title -->
     <div class="text-center my-5">
         <h2 class="display-4 text-primary">Próximos Eventos "Dublin"</h2>
     </div>
-    <!-- end Title -->
 
-    <!-- Modal ADD     -->
-    <div class="d-flex bd-highlight">
-        <button type="button" class="btn btn-success mb-3 ml-auto" data-toggle="modal" data-target="#adicionaDublin">
-            Adicionar Novo
-        </button>
+    <!-- ############################## Formularios de Adicionar e Editar ### INICIO ########################  -->
+    <div class="d-flex flex-column">
+        <form action="process.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <div class="row">
+                <div class="col-4">
+                    <label for="evento">Evento</label>
+                    <input type="text" class="form-control" name="evento" required value="<?php echo $evento; ?>" placeholder="Nome Do Evento">
+                </div>
+                <div class="col-4">
+                    <label for="local">Local</label>
+                    <input type="text" class="form-control" name="local" required value="<?php echo $local; ?>" placeholder="Endereço do Evento">
+                </div>
+                <div class="col-3">
+                    <label for="data">Data</label>
+                    <input type="text" class="form-control" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
+                </div>
+                <div class="col-1 px-0">
+                    <label for="data">&nbsp;</label>
+                    <?php
+                    if ($update == true) : ?>
+                        <input type="submit" class="btn btn-danger form-control" name="update" value="Alterar">
+                    <?php
+                    else : ?>
+                        <input type="submit" class="btn btn-success form-control" name="adicionar" value="Adicionar">
+                    <?php
+                    endif; ?>
+                </div>
+            </div>
+        </form>
     </div>
-    <!-- Modal -->
-
-
-    <?php
-    include("conexao.php");
-    $dublin = selectDublin();
-    ?>
+    <!-- ############################## Formularios de Adicionar e Editar ### FIM ########################  -->
 
     <table class="table table-hover table-responsive-md text-center">
         <thead>
@@ -94,103 +131,30 @@
                 <th scope="col">Data</th>
                 <th scope="col">Evento</th>
                 <th scope="col">Local</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Update</th>
             </tr>
         </thead>
-        <?php
-        foreach ($dublin as $resultado) {
-        ?>
-            <tbody>
+        <tbody>
+            <!-- Laço de seleção do Formulario -->
+            <?php while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                    <th scope="row"><?= $resultado["data"] ?></th>
-                    <td><?= $resultado["evento"] ?></td>
-                    <td><?= $resultado["local"] ?></td>
-                    <td><a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar">Editar</a><a href="" class="btn btn-danger ml-1 btn-sm">Exluir</a></td>
+                    <th scope="row"><?php echo $row['data']; ?></th>
+                    <td><?php echo $row['evento']; ?></td>
+                    <td><?php echo $row['local']; ?></td>
+                    <td>
+                        <a href="adminCalifornia.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
+                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
+                    </td>
                 </tr>
-            <?php
-        }
-            ?>
-            </tbody>
+            <?php endwhile; ?>
+            <!-- Laço de seleção do Formulario -->
+        </tbody>
     </table>
-    <!-- End table -->
-
 </section>
-<!-- End table -->
+<!-- ################################## TABELA DE CONTEUDO #### FIM ##########################-->
 
 
-
-
-<!-- Modal Adicionar Eventos Dublin -->
-<div class="modal fade" id="adicionaDublin" tabindex="-1" role="dialog" aria-labelledby="adicionarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adicionarLabel">Adcionar Evento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="conexao.php" method="POST">
-                <div class="modal-body">
-                    <label for="Evento">Eventos</label>
-                    <input type="text" class="form-control" name="evento" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" name="local" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" name="data" id="" placeholder="Data" maxlength="40" minlength="5">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <input type="hidden" name="dublin" value="inserir" />
-                    <input type="submit" class="btn btn-primary" value="Enviar" name="Enviar" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal ADD -->
-
-<!-- Editar O conteudo -->
-<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarLabel">Aditar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <label for="Evento">Evento</label>
-                    <input type="text" class="form-control" placeholder="Nome Do Evento">
-                    <div class="row my-2">
-                        <div class="col-md-8">
-                            <label for="Endereco">Endereço</label>
-                            <input type="text" class="form-control" placeholder="Endereço do Evento">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="Endereco">Data</label>
-                            <input type="text" class="form-control" placeholder="Data">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                <button type="button" class="btn btn-primary">Atualizar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!--####################################### SCRIPTS ### INICIO ################################## -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
@@ -202,3 +166,4 @@
 <!-- Footer -->
 <?php include("footer.php") ?>
 <!-- End footer -->
+<!--####################################### SCRIPTS ### FIM ###################################### -->
