@@ -15,18 +15,16 @@
                  <a class="nav-link" href="index.php">Home</a>
              </li>
              <li class="nav-item dropdown">
-
-
-
-                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=" #">
-                     Locais
-                 </a>
-                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="california.php">California</a>
-                     <a class="dropdown-item" href="paris.php">Paris</a>
-                     <a class="dropdown-item" href="dublin.php">Dublin</a>
-                 </div>
-             </li>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Locais
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="california.php">California</a>
+                        <a class="dropdown-item" href="paris.php">Paris</a>
+                        <a class="dropdown-item" href="dublin.php">Dublin</a>
+                    </div>
+                </li>
              <li class="nav-item">
                  <a class="nav-link" href="planos.php">Planos</a>
              </li>

@@ -43,6 +43,12 @@
 </nav>
 <!-- Button trigger modal -->
 
+
+
+
+
+
+
 <!-- Carousel and Info -->
 <section class="container-fluid">
     <div class="row bg-dark text-white">
