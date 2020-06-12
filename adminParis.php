@@ -29,8 +29,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item " href="admin.php"><strong>Pagina Admin</strong></a>
                     <a class="dropdown-item " href="adminCalifornia.php">California</a>
-                    <a class="dropdown-item" href="adminParis.php">Paris</a>
-                    <a class="dropdown-item active" href="adminDublin.php">Dublin</a>
+                    <a class="dropdown-item active" href="adminParis.php">Paris</a>
+                    <a class="dropdown-item " href="adminDublin.php">Dublin</a>
                 </div>
             </li>
             <li class="nav-item ml-md-2 active ">
@@ -113,10 +113,10 @@ $result = $mysqli->query("SELECT * FROM paris") or die($mysqli->error);  // Puxa
                     <label for="data">&nbsp;</label>
                     <?php
                     if ($update == true) : ?>
-                        <input type="submit" class="btn btn-danger form-control" name="update" value="Alterar">
+                        <input type="submit" class="btn btn-danger form-control" name="updateParis" value="Alterar">
                     <?php
                     else : ?>
-                        <input type="submit" class="btn btn-success form-control" name="adicionar" value="Adicionar">
+                        <input type="submit" class="btn btn-success form-control" name="adicionarParis" value="Adicionar">
                     <?php
                     endif; ?>
                 </div>
@@ -143,7 +143,7 @@ $result = $mysqli->query("SELECT * FROM paris") or die($mysqli->error);  // Puxa
                     <td><?php echo $row['local']; ?></td>
                     <td>
                         <a href="adminParis.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
-                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
+                        <a href="process.php?deleteParis=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
                     </td>
                 </tr>
             <?php endwhile; ?>

@@ -10,7 +10,7 @@ $evento = "";
 $local = "";
 
 // ============================== California
-if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
+if(isset($_POST['adicionarCalifornia'])){// Botão  Adicionar Modal
     $data = $_POST['data'];
     $evento = $_POST['evento'];
     $local = $_POST['local'];
@@ -20,16 +20,16 @@ if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
     
     $_SESSION['message'] = "Cadastro Realizado com Sucesso";
     $_SESSION['msg_type'] = "success";
-    header("location: adminDublin.php");
+    header("location: adminCalifornia.php");
 }
 
-if(isset($_GET['delete'])){ //Deletar Do Banco
-    $id = $_GET['delete'];
+if(isset($_GET['deleteCalifornia'])){ //Deletar Do Banco
+    $id = $_GET['deleteCalifornia'];
     $mysqli->query("DELETE FROM california WHERE id=$id") or die($mysqli->error);
     
     $_SESSION['message'] = "Evento Deletado";
     $_SESSION['msg_type'] = "danger";
-    header("location: adminDublin.php");
+    header("location: adminCalifornia.php");
 }
 
 if(isset($_GET['edit'])){ // pegando o ID
@@ -44,7 +44,7 @@ if(isset($_GET['edit'])){ // pegando o ID
     }
 }
 
-if (isset($_POST['update'])){ //alterando Formulario
+if (isset($_POST['updateCalifornia'])){ //alterando Formulario
     $id = $_POST['id'];
     $data = $_POST['data'];
     $evento = $_POST['evento'];
@@ -54,7 +54,7 @@ if (isset($_POST['update'])){ //alterando Formulario
     var_dump($local);
     $_SESSION['message'] = "Alteração feita";
     $_SESSION['msg_type'] = "success";
-    header("location: adminDublin.php");
+    header("location: adminCalifornia.php");
 }
 // ============================== California
 
@@ -62,7 +62,7 @@ if (isset($_POST['update'])){ //alterando Formulario
 // ##################################   Dublin     #############################'
 
 // ============================== Dublin
-if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
+if(isset($_POST['adicionarDublin'])){// Botão  Adicionar Modal
     $data = $_POST['data'];
     $evento = $_POST['evento'];
     $local = $_POST['local'];
@@ -75,8 +75,8 @@ if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
     header("location: adminDublin.php");
 }
 
-if(isset($_GET['delete'])){ //Deletar Do Banco
-    $id = $_GET['delete'];
+if(isset($_GET['deleteDublin'])){ //Deletar Do Banco
+    $id = $_GET['deleteDublin'];
     $mysqli->query("DELETE FROM dublin WHERE id=$id") or die($mysqli->error);
     
     $_SESSION['message'] = "Evento Deletado";
@@ -96,7 +96,7 @@ if(isset($_GET['edit'])){ // pegando o ID
     }
 }
 
-if (isset($_POST['update'])){ //alterando Formulario
+if (isset($_POST['updateDublin'])){ //alterando Formulario
     $id = $_POST['id'];
     $data = $_POST['data'];
     $evento = $_POST['evento'];
@@ -117,7 +117,7 @@ if (isset($_POST['update'])){ //alterando Formulario
 
 
 // ============================== Paris
-if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
+if(isset($_POST['adicionarParis'])){// Botão  Adicionar Modal
     $data = $_POST['data'];
     $evento = $_POST['evento'];
     $local = $_POST['local'];
@@ -130,8 +130,8 @@ if(isset($_POST['adicionar'])){// Botão  Adicionar Modal
     header("location: adminParis.php");
 }
 
-if(isset($_GET['delete'])){ //Deletar Do Banco
-    $id = $_GET['delete'];
+if(isset($_GET['deleteParis'])){ //Deletar Do Banco
+    $id = $_GET['deleteParis'];
     $mysqli->query("DELETE FROM paris WHERE id=$id") or die($mysqli->error);
     
     $_SESSION['message'] = "Evento Deletado";
@@ -151,7 +151,7 @@ if(isset($_GET['edit'])){ // pegando o ID
     }
 }
 
-if (isset($_POST['update'])){ //alterando Formulario
+if (isset($_POST['updateParis'])){ //alterando Formulario
     $id = $_POST['id'];
     $data = $_POST['data'];
     $evento = $_POST['evento'];

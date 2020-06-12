@@ -113,10 +113,10 @@ $result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Pux
                     <label for="data">&nbsp;</label>
                     <?php
                     if ($update == true) : ?>
-                        <input type="submit" class="btn btn-danger form-control" name="update" value="Alterar">
+                        <input type="submit" class="btn btn-danger form-control" name="updateDublin" value="Alterar">
                     <?php
                     else : ?>
-                        <input type="submit" class="btn btn-success form-control" name="adicionar" value="Adicionar">
+                        <input type="submit" class="btn btn-success form-control" name="adicionarDublin" value="Adicionar">
                     <?php
                     endif; ?>
                 </div>
@@ -143,7 +143,7 @@ $result = $mysqli->query("SELECT * FROM dublin") or die($mysqli->error);  // Pux
                     <td><?php echo $row['local']; ?></td>
                     <td>
                         <a href="adminDublin.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a> <!-- levar os itens da lista para formulario de edição -->
-                        <a href="process.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
+                        <a href="process.php?deleteDublin=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">delete</a> <!-- Excluir no banco a linha mostrada lista -->
                     </td>
                 </tr>
             <?php endwhile; ?>
