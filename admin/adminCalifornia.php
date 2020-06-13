@@ -1,3 +1,14 @@
+<?php
+// Conexão
+require_once '../login/db_connect.php';
+// Sessão
+session_start();
+// Verificação
+if (!isset($_SESSION['logado'])) :
+    header('Location: ../admin.php');
+endif;
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +66,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ficar</button>
-                <button type="button" class="btn btn-primary">Sair</button>
+                <a type="button" class="btn btn-primary" href="../login/logout.php">Sair</a>
             </div>
         </div>
     </div>
@@ -97,6 +108,10 @@ $result = $mysqli->query("SELECT * FROM california ORDER BY id desc") or die($my
         <form action="process.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <div class="row">
+                <div class="col-3">
+                    <label for="data">Data</label>
+                    <input type="text" class="form-control" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
+                </div>
                 <div class="col-4">
                     <label for="evento">Evento</label>
                     <input type="text" class="form-control" name="evento" required value="<?php echo $evento; ?>" placeholder="Nome Do Evento">
@@ -104,10 +119,6 @@ $result = $mysqli->query("SELECT * FROM california ORDER BY id desc") or die($my
                 <div class="col-4">
                     <label for="local">Local</label>
                     <input type="text" class="form-control" name="local" required value="<?php echo $local; ?>" placeholder="Endereço do Evento">
-                </div>
-                <div class="col-3">
-                    <label for="data">Data</label>
-                    <input type="text" class="form-control" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
                 </div>
                 <div class="col-1 px-0">
                     <label for="data">&nbsp;</label>

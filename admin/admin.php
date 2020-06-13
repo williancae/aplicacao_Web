@@ -1,7 +1,13 @@
 <?php
-
+// Conexão
+require_once '../login/db_connect.php';
+// Sessão
+session_start();
+// Verificação
+if(!isset($_SESSION['logado'])):
+	header('Location: ../admin.php');
+endif;
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +56,7 @@
 
 
 <!-- Carousel and Info -->
-<section class="container-fluid">
+<section class="container-fluid" >
     <div class="row bg-dark text-white">
         <div class="col-lg-7 p-0">
             <!-- Carousel -->
@@ -92,15 +98,14 @@
             <!-- End carousel -->
         </div>
         <div class="col-lg-5 p-4 align-self-center">
-            <h1 class="display-4">Realize a viagem do seu sonho</h1>
-            <p class="lead">O melhor local para viajar é com a Caravan, mais de 5.000 excursões concluídas.</p>
+            <h1 class="display-4">Pagina do Administrador</h1>
+            <p class="lead">Organize seus eventos por aqui. Crie, Modifique e Finalize Eventos</p>
             <form action="">
                 <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="E-mail" aria-label="Email" aria-describedby="Email">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="button-addon2">
-                            Inscreva-se
-                        </button>
+                    <div class="">
+                        <a href="adminCalifornia.php" class="btn btn-primary" type="button">California</a>
+                        <a href="adminDublin.php" class="btn btn-primary mx-3" style="width: 93.59px;" type="button">Dublin</a>
+                        <a href="adminParis.php" class="btn btn-primary" style="width: 93.59px;" type="button">Paris</a>            
                     </div>
                 </div>
             </form>
@@ -125,7 +130,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ficar</button>
-                <button type="button" class="btn btn-primary">Sair</button>
+                <a type="button" class="btn btn-primary" href="../login/logout.php">Sair</a>
+                <!-- <button  href="../login/logout.php">Sair</button> -->
             </div>
         </div>
     </div>
