@@ -20,9 +20,9 @@
                         Locais
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="california.php">California</a>
-                        <a class="dropdown-item" href="paris.php">Paris</a>
-                        <a class="dropdown-item" href="dublin.php">Dublin</a>
+                        <a class="dropdown-item" href="locais/california.php">California</a>
+                        <a class="dropdown-item" href="locais/paris.php">Paris</a>
+                        <a class="dropdown-item" href="locais/dublin.php">Dublin</a>
                     </div>
                 </li>
              <li class="nav-item">

@@ -1,11 +1,11 @@
 <?php	
 // >>>>>>>>>>>>>>>>>>>>>>>>>>> Estabelecendo conexao banco	
 function abrirBanco()	
-{	
-        //  Local 
-    $conexao = new mysqli("localhost", "root", "root", "caravan");
-    return $conexao;	
-}	
+{
+    //  Local
+    $conexao = mysqli_connect("localhost", "root", "root", "caravan");
+    return $conexao;
+}
 // >>>>>>>>>>>>>>>>>>>>>>>>>>> Estabelecendo conexao banco	
 
 // 	
@@ -25,7 +25,7 @@ function eventoParis()
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";	
     $banco->query($sql);	
     $banco->close();	
-    header("Location:adminParis.php");	
+    header("Location:admin/adminParis.php");	
 }	
 
 
@@ -55,7 +55,7 @@ function eventoDublin()
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";	
     $banco->query($sql);	
     $banco->close();	
-    header("Location:adminDublin.php");	
+    header("Location:admin/adminDublin.php");	
 }	
 
 function selectDublin()	
@@ -91,7 +91,7 @@ function eventoCalifornia()
         "VALUES ('{$_POST["data"]}', '{$_POST["evento"]}', '{$_POST["local"]}')";	
     $banco->query($sql);	
     $banco->close();	
-    header("Location:adminCalifornia.php");	
+    header("Location:admin/adminCalifornia.php");	
 }	
 function selectCalifornia() // --->>-->> Selecionar toda tabela do banco e trazer seus valores	
 {	
@@ -119,16 +119,14 @@ function alteraCalifornia() // -->>-->> Alterações Realizadas no MODAL De ATUA
     $sql = "UPDATE california SET data='{$_POST["data"]}',evento='{$_POST["evento"]}',local='{$_POST["local"]}' WHERE id='{$_POST["id"]}' ";	
     $banco->query($sql);	
     $banco->close();	
-    header("Location:adminCalifornia.php");	
+    header("Location:admin/adminCalifornia.php");	
 }	
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Conectar Banco 
 
-
+// 
+// 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Login
-
-
-
 
 
 
