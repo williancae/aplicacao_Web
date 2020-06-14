@@ -91,7 +91,8 @@ if (isset($_SESSION['message'])) : ?>
 
 <!-- ################################# Conexão com Banco ### INICIO ######################### -->
 <?php
-$mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli)); // Chamando Banco Caravan
+
+$mysqli = new mysqli('sql3.freesqldatabase.com:3306', 'sql3346942', '4Pt5Hh9qtW', 'sql3346942') or die(mysqli_error($mysqli)); // Chamando Banco Caravan
 $result = $mysqli->query("SELECT * FROM california ORDER BY id desc") or die($mysqli->error);  // Puxando dados da tabela CALIFORNIA
 ?>
 <!-- ################################# Conexão com Banco ### FIM ######################### -->
