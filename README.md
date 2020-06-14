@@ -55,4 +55,13 @@
 <h3 ><b>DELETE</b></h3>
 <img src="CRUD.png">
 <p>Ao apertar sobre o botão delete, será excluido automaticamento do banco e da lista, além de mostrar uma aviso que foi excluido com sucesso.</p>
-
+<hr>
+<h1>Integrantes</h1>
+<h2>Falculdade Projeção Sobradinho - Quadra 4</h2>
+<p><b>Nome: </b>Willian Caetano Campos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Curso: </b>Análise e desenvolvimento de sistema<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matricula: </b>201811018</p>
+<div>
+<h2>Linkedin:<a href="https://www.linkedin.com/in/willian-caetano-670546185/"> Willian Caetano</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GitHub: <a href="https://github.com/williancae"> WillianCae</a></h2>
+<img src="linkedin.png" style="max-width:310px; max-height:350px; width: auto; height: auto;">
+<img src="github.png" style="max-width:310px; max-height:350px; width: auto; height: auto; margin-left: 30px; padding: 0px;">
+</div>
+<hr>
