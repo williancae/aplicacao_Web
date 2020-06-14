@@ -16,7 +16,8 @@
    * O projeto foi feito em sobre uma template desenvolvida por mim em um curso da plataforma _Origamid_;
    * A template consiste em um site de Turismo e Organização de Eventos;
    * Foi criado como adcional uma tela de login e pagina de adminitrador onde se encontra o CRUD.
-2. PHP
+2. PHP e Sql
+   * O projeto é feito em ambiente local (_localhost ou 127.0.0.1_);
    * Com PHP consegui  dar novas funcionalidades ao projeto utilizando PHP estruturado, controle de Sessão e interação da linguagem com o Banco de Dados;
-   * **CRUD -** 
-   * O projeto é feito em ambiente local (*localhost ou 127.0.0.1*);
+   * **CRUD -** consiste em 4 tabelas, as tabelas de "Cidades" foram implemtadas as funções de criar, visualizar, editar e deletar, na tabela "Admin" onde se encontra o login e a senha da pagina administrativa.
+
