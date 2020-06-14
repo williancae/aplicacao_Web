@@ -111,7 +111,7 @@ $result = $mysqli->query("SELECT * FROM paris ORDER BY id desc") or die($mysqli-
             <div class="row">
                 <div class="col-3">
                     <label for="data">Data</label>
-                    <input type="text" class="form-control" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
+                    <input type="text" class="form-control" minlength="5" maxlength="5" name="data" required id="" value="<?php echo $data; ?>" placeholder="Data">
                 </div>
                 <div class="col-4">
                     <label for="evento">Evento</label>

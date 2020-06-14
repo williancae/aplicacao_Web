@@ -1,0 +1,3 @@
+O banco de Dados Caravan ele pode ser importado para seu PhpMyAdmin.
+ATENÇÃO!!
+--Caso importe esse Banco é nescessario fazer alterações no codigo PHP, onde faz referencia ao banco e suas tabelas.
