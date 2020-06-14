@@ -1,5 +1,5 @@
 # Aplicação Web - Projeto PHP
-<br>
+
 ###  Critérios e Requisitos do trabalho:
 1. **Avaliação:**
    * Integração com Banco de Dados;
