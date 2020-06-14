@@ -3,13 +3,13 @@
 <h2><b>Critérios do trabalho:</b></h2>
 
 1. **Avaliação:**
-   <br><input type="checkbox">Integração com Banco de Dados;
-   <br><input type="checkbox">Ser desenvolvido em PHP;
-   <br><input type="checkbox">Interface agradavel;
-   <br><input type="checkbox">Possuir contole de sessão;
-   <br><input type="checkbox">Possuir tela de login;
-   <br><input type="checkbox">Realizar CRUD (Create, Read, Update, Delete) via interface;
-   <br><input type="checkbox"><b><i>Nota EXTRA:</i></b> Fazer integração com banco de Dados em nuvem.
+- [x] Integração com Banco de Dados;
+- [x] Ser desenvolvido em PHP;
+- [x] Interface agradavel;
+- [x] Possuir contole de sessão;
+- [x] Possuir tela de login;
+- [x] Realizar CRUD (Create, Read, Update, Delete) via interface;
+- [x] <b><i>Nota EXTRA:</i></b> Fazer integração com banco de Dados em nuvem.
 <hr>
 
 <h2><b>Descrição do Projeto</b></h2>
@@ -59,9 +59,4 @@
 <h1>Integrantes</h1>
 <h2>Falculdade Projeção Sobradinho - Quadra 4</h2>
 <p><b>Nome: </b>Willian Caetano Campos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Curso: </b>Análise e desenvolvimento de sistema<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matricula: </b>201811018</p>
-<div>
 <h2>Linkedin:<a href="https://www.linkedin.com/in/willian-caetano-670546185/"> Willian Caetano</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GitHub: <a href="https://github.com/williancae"> WillianCae</a></h2>
-<img src="linkedin.png" style="max-width:310px; max-height:350px; width: auto; height: auto;">
-<img src="github.png" style="max-width:310px; max-height:350px; width: auto; height: auto; margin-left: 30px; padding: 0px;">
-</div>
-<hr>
