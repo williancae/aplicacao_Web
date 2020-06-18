@@ -3,7 +3,7 @@
 function abrirBanco()	
 {
     //  Local
-    $conexao = mysqli_connect("sql3.freesqldatabase.com:3306", "sql3346942", "4Pt5Hh9qtW", "sql3346942");
+    $conexao = mysqli_connect("localhost", "root", "root", "caravan");
     return $conexao;
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>> Estabelecendo conexao banco	

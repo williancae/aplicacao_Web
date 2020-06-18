@@ -1,3 +1,4 @@
 O banco de Dados Caravan ele pode ser importado para seu PhpMyAdmin.
 ATENÇÃO!!
 --Caso importe esse Banco é nescessario fazer alterações no codigo PHP, onde faz referencia ao banco e suas tabelas.
+--O prazo de Duração do Banco em nuvem é limmitado portanto, caso tenha ERROS no login e no CRUD importe o banco caravan.sql. Site: www.FreeSqlDatabase.com
