@@ -2,7 +2,6 @@
 
 session_start();
 // Conexão com Banco
-// sql3.freesqldatabase.com:3306", "sql3346942", "4Pt5Hh9qtW", "sql3346942");
 $mysqli = new mysqli('localhost', 'root', 'root', 'caravan') or die(mysqli_error($mysqli));
 $id = 0;
 $update = false;
