@@ -32,6 +32,7 @@
 * Possuir intalado na maquina o Apache e o Mysql;
 <p>Clonando o projeto em sua maquina.</p>
 <code>git clone https://github.com/williancae/aplicacao_Web.git</code>
+<p>Importe o Banco <i>caravan.sql</i> que esta pasta "bancoDeDados", e  abra com seu Phpmyadmin.</p>
 <hr>
 
 <h2><b>Tela - Login Administrador</b></h2>
