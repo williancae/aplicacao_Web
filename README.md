@@ -36,7 +36,7 @@
 <hr>
 
 <h2><b>Tela - Login Administrador</b></h2>
-<h3 ><b>Login</b></h3>
+<h3 ><b>Login:</b></h3>
 <img src="login.png" style="width: 100%;">
 1. Para chegar a esta pagina é nescessario inserir na URL o comando <code>/admin.php</code> colando logo após a <code>localhost/aplicacao_Web</code>, tendo como resultado <code>localhost/aplicacao_Web/admin.php</code><br>
 2. Feito isso voce será direcionado a essa tela de login exibida acima, para fazer login é nescessarios preencher os campos com <strong>Login:</strong> admin e <strong>Senha:</strong> admin.
@@ -46,7 +46,7 @@
 2. Ao abrir o modal o você tera a opção de SAIR ou FICAR;<br>
 3. É de extrema importancia fazer o logout ao sair para <strong>finalizar a sessão </strong>devido caso não seja  feito o logout a pagina administriva continuara aberta.
 <hr>
-<h2>Pagina Administrativa - CRUD</h2>
+<h2>Pagina Administrativa-CRUD</h2>
 <p>Ao chegar na tela do CRUD você tera a opção de criar, editar e excluir um evento, demontrados em BUTTONS.</p>
 <h3 ><b>CREATE</b></h3>
 <img src="CRUD.png">
